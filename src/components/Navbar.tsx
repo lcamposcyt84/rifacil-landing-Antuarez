@@ -41,6 +41,14 @@ const Navbar = () => {
 
   const menuItems = ['Inicio', 'Nosotros', 'Blog'];
   const royalBlue = '#1c37a3';
+  const hoverYellow = '#FFAE00'; // Color amarillo para hover
+
+  // Estilo común para botones redondeados
+  const roundedButtonStyle = {
+    borderRadius: '24px',
+    textTransform: 'none',
+    padding: '8px 16px',
+  };
 
   const drawer = (
     <Box sx={{ width: 250, p: 2 }}>
@@ -61,10 +69,8 @@ const Navbar = () => {
                 py: 1.5,
                 color: '#1976d2',
                 '&:hover': {
-                  color: royalBlue,
-                },
-                '&.active': {
-                  color: royalBlue,
+                  color: '#000000',
+                  backgroundColor: hoverYellow,
                 },
               }}
             >
@@ -88,7 +94,10 @@ const Navbar = () => {
                     py: 1.5,
                     color: '#7e3af2',
                     fontWeight: 'bold',
-                    '&:hover': { color: '#6929c4' },
+                    '&:hover': { 
+                      color: '#000000',
+                      backgroundColor: hoverYellow 
+                    },
                   }}
                 >
                   Crear Rifa
@@ -104,7 +113,10 @@ const Navbar = () => {
                   justifyContent: 'flex-start',
                   py: 1.5,
                   color: '#1976d2',
-                  '&:hover': { color: royalBlue },
+                  '&:hover': { 
+                    color: '#000000',
+                    backgroundColor: hoverYellow 
+                  },
                 }}
               >
                 Mi Perfil
@@ -119,7 +131,10 @@ const Navbar = () => {
                   justifyContent: 'flex-start',
                   py: 1.5,
                   color: '#1976d2',
-                  '&:hover': { color: royalBlue },
+                  '&:hover': { 
+                    color: '#000000',
+                    backgroundColor: hoverYellow 
+                  },
                 }}
               >
                 Mis Rifas
@@ -135,7 +150,10 @@ const Navbar = () => {
                     justifyContent: 'flex-start',
                     py: 1.5,
                     color: '#1976d2',
-                    '&:hover': { color: royalBlue },
+                    '&:hover': { 
+                      color: '#000000',
+                      backgroundColor: hoverYellow 
+                    },
                   }}
                 >
                   Panel Admin
@@ -150,7 +168,10 @@ const Navbar = () => {
                   justifyContent: 'flex-start',
                   py: 1.5,
                   color: '#f44336',
-                  '&:hover': { color: '#d32f2f' },
+                  '&:hover': { 
+                    color: '#000000',
+                    backgroundColor: hoverYellow 
+                  },
                 }}
               >
                 Cerrar Sesión
@@ -168,7 +189,10 @@ const Navbar = () => {
                   justifyContent: 'flex-start',
                   py: 1.5,
                   color: '#1976d2',
-                  '&:hover': { color: royalBlue },
+                  '&:hover': { 
+                    color: '#000000',
+                    backgroundColor: hoverYellow 
+                  },
                 }}
               >
                 Iniciar Sesión
@@ -183,7 +207,10 @@ const Navbar = () => {
                   justifyContent: 'flex-start',
                   py: 1.5,
                   color: '#1976d2',
-                  '&:hover': { color: royalBlue },
+                  '&:hover': { 
+                    color: '#000000',
+                    backgroundColor: hoverYellow 
+                  },
                 }}
               >
                 Registrarse
@@ -193,13 +220,13 @@ const Navbar = () => {
         )}
       </List>
       <Box sx={{ display: 'flex', gap: 2, ml: 2, mt: 2 }}>
-        <IconButton size="small" sx={{ color: '#1976d2', '&:hover': { color: '#ffae00' } }}>
+        <IconButton size="small" sx={{ color: '#1976d2', '&:hover': { color: hoverYellow } }}>
           <Facebook size={25} />
         </IconButton>
-        <IconButton size="small" sx={{ color: '#1976d2', '&:hover': { color: '#ffae00' } }}>
+        <IconButton size="small" sx={{ color: '#1976d2', '&:hover': { color: hoverYellow } }}>
           <Twitter size={25} />
         </IconButton>
-        <IconButton size="small" sx={{ color: '#1976d2', '&:hover': { color: '#ffae00' } }}>
+        <IconButton size="small" sx={{ color: '#1976d2', '&:hover': { color: hoverYellow } }}>
           <Instagram size={25} />
         </IconButton>
       </Box>
@@ -236,11 +263,11 @@ const Navbar = () => {
                 textTransform: 'none',
                 fontSize: '0.875rem',
                 color: 'white',
+                borderRadius: '24px',
+                padding: '6px 16px',
                 '&:hover': {
-                  color: royalBlue,
-                },
-                '&.active': {
-                  color: royalBlue,
+                  backgroundColor: hoverYellow,
+                  color: '#000000',
                 },
               }}
             >
@@ -259,9 +286,12 @@ const Navbar = () => {
                   to="/crear-rifa"
                   variant="contained"
                   sx={{ 
-                    textTransform: 'none',
+                    ...roundedButtonStyle,
                     backgroundColor: '#7e3af2', 
-                    '&:hover': { backgroundColor: '#6929c4' } 
+                    '&:hover': { 
+                      backgroundColor: hoverYellow,
+                      color: '#000000'
+                    } 
                   }}
                 >
                   Crear Rifa
@@ -277,13 +307,19 @@ const Navbar = () => {
                   aria-haspopup="true"
                   onClick={handleMenu}
                   color="inherit"
+                  sx={{
+                    '&:hover': {
+                      backgroundColor: hoverYellow,
+                      color: '#000000'
+                    }
+                  }}
                 >
                   <Avatar sx={{ 
                     width: 32, 
                     height: 32, 
                     bgcolor: '#7e3af2',
-                    color: 'white', // Asegura que el texto sea visible
-                    fontWeight: 'bold' // Mejora la legibilidad
+                    color: 'white',
+                    fontWeight: 'bold'
                   }}>
                     {user.nombre ? user.nombre.charAt(0).toUpperCase() : <AccountCircleIcon />}
                   </Avatar>
@@ -309,7 +345,11 @@ const Navbar = () => {
                       mt: 1.5,
                       '& .MuiMenuItem-root': {
                         px: 2,
-                        py: 1
+                        py: 1,
+                        '&:hover': {
+                          backgroundColor: hoverYellow,
+                          color: '#000000'
+                        }
                       }
                     }
                   }}
@@ -338,14 +378,15 @@ const Navbar = () => {
               <Button
                 component={Link}
                 to="/login"
-                variant="outlined"
                 sx={{
-                  textTransform: 'none',
-                  borderColor: 'white',
+                  ...roundedButtonStyle,
                   color: 'white',
+                  backgroundColor: 'transparent',
+                  border: '1px solid white',
                   '&:hover': {
-                    borderColor: royalBlue,
-                    backgroundColor: 'rgba(255,255,255,0.1)',
+                    backgroundColor: hoverYellow,
+                    borderColor: hoverYellow,
+                    color: '#000000',
                   },
                 }}
               >
@@ -354,12 +395,15 @@ const Navbar = () => {
               <Button
                 component={Link}
                 to="/register"
-                variant="contained"
                 sx={{
-                  textTransform: 'none',
-                  backgroundColor: royalBlue,
+                  ...roundedButtonStyle,
+                  color: 'white',
+                  backgroundColor: 'transparent',
+                  border: '1px solid white',
                   '&:hover': {
-                    backgroundColor: '#152a7a',
+                    backgroundColor: hoverYellow,
+                    borderColor: hoverYellow,
+                    color: '#000000',
                   },
                 }}
               >
@@ -369,13 +413,13 @@ const Navbar = () => {
           )}
           
           <Box sx={{ display: 'flex', gap: 2, ml: 2 }}>
-            <IconButton size="small" sx={{ color: 'white', '&:hover': { color: '#ffae00' } }}>
+            <IconButton size="small" sx={{ color: 'white', '&:hover': { color: hoverYellow } }}>
               <Facebook size={25} />
             </IconButton>
-            <IconButton size="small" sx={{ color: 'white', '&:hover': { color: '#ffae00' } }}>
+            <IconButton size="small" sx={{ color: 'white', '&:hover': { color: hoverYellow } }}>
               <Twitter size={25} />
             </IconButton>
-            <IconButton size="small" sx={{ color: 'white', '&:hover': { color: '#ffae00' } }}>
+            <IconButton size="small" sx={{ color: 'white', '&:hover': { color: hoverYellow } }}>
               <Instagram size={25} />
             </IconButton>
           </Box>
@@ -385,6 +429,10 @@ const Navbar = () => {
             display: { xs: 'flex', md: 'none' },
             color: 'white',
             ml: 2,
+            '&:hover': { 
+              color: '#000000',
+              backgroundColor: hoverYellow 
+            },
           }}
           onClick={handleDrawerToggle}
         >
